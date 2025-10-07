@@ -1,0 +1,6 @@
+@M8MusicAPI_HostAddress = http://localhost:5042
+
+GET {{M8MusicAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
