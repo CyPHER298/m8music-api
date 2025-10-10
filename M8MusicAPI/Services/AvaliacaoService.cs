@@ -14,7 +14,7 @@ public class AvaliacaoService : IAvaliacaoService
         _avaliacaoRepository = avaliacaoRepository;
     }
 
-    public Task<List<Avaliacao>> ListarAvaliacoesAsync(AvaliacaoDto dto)
+    public Task<List<Avaliacao>> ListarAvaliacoesAsync(AvaliacaoDto? dto = null)
     {
         var cliente = new Cliente { IdCliente = Guid.NewGuid(), NmCliente = "Henrique", Cpf = "123.123.123-12" };
         var musica = new Music

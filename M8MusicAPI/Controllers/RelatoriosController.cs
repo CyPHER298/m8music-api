@@ -17,18 +17,18 @@ public class RelatoriosController : ControllerBase
     {
         _avaliacaoService = avaliacaoService;
     }
-    
+
     [HttpGet]
     [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
-    public async Task<IActionResult> MostrarRelatorios([FromQuery] AvaliacaoDto dto)
+    public async Task<IActionResult> MostrarRelatorios()
     {
-        var avaliacoes = await _avaliacaoService.ListarAvaliacoesAsync(dto);
-
-        // retorna direto o que vem do service (seu mock com 2 avaliações)
+        var avaliacoes =
+            await _avaliacaoService.ListarAvaliacoesAsync(null); // ajuste a assinatura do service, ver Opção 1 abaixo
         return Ok(new
         {
             total = avaliacoes.Count,
-            items = avaliacoes.Select(a => new {
+            items = avaliacoes.Select(a => new
+            {
                 a.IdAvalicao,
                 a.Nota,
                 music = new { a.Music.idMusic, a.Music.titulo, a.Music.artista, a.Music.genre },

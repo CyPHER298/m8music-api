@@ -6,5 +6,5 @@ namespace M8MusicAPI.Services;
 
 public interface IAvaliacaoService
 {
-    Task<List<Avaliacao>> ListarAvaliacoesAsync(AvaliacaoDto dto);
+    Task<List<Avaliacao>> ListarAvaliacoesAsync(AvaliacaoDto? dto = null);
 }

@@ -2,4 +2,4 @@
 
 public interface IAvaliacaoRepository;
 
-public class AvaliacaoService : IAvaliacaoRepository;
+public class AvaliacaoRepository : IAvaliacaoRepository;

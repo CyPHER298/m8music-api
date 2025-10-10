@@ -53,7 +53,8 @@ public class Program
 
         // builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
         // builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
-        
+        builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+        builder.Services.AddScoped<IAvaliacaoService, AvaliacaoService>();
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddOpenApi();
