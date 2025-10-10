@@ -43,9 +43,5 @@ public class AvaliacaoService : IAvaliacaoService
         };
         return Task.FromResult(avaliacoes);
     }
-
-    public Task<List<Avaliacao>> listarAvaliacoesAsync()
-    {
-        throw new NotImplementedException();
-    }
+    
 }
