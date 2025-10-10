@@ -1,5 +1,6 @@
 using M8MusicAPI.Data;
 using M8MusicAPI.Repository;
+using M8MusicAPI.Services;
 using M8MusicAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -18,6 +19,7 @@ public class Program
             .Get<SwaggerConfig>();
 
         // Add services to the container.
+
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -51,7 +53,8 @@ public class Program
 
         // builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
         // builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
-        
+        builder.Services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
+        builder.Services.AddScoped<IAvaliacaoService, AvaliacaoService>();
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddOpenApi();
