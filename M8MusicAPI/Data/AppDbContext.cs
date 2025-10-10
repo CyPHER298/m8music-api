@@ -1,4 +1,5 @@
-﻿using M8MusicAPI.Mappings;
+﻿using M8MusicAPI.Infrastructure.Persistence.Models;
+using M8MusicAPI.Mappings;
 using M8MusicAPI.Models;
 using Microsoft.EntityFrameworkCore;
 

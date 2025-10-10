@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using M8MusicAPI.Infrastructure.Persistence.Models;
 
 namespace M8MusicAPI.Models;
 
