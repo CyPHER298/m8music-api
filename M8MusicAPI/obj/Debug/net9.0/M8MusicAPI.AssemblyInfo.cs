@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("M8MusicAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35189fc72f3aa14abcc4f19edec04ecf1daf5003")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a51fb5d64f6545ed7300e54c1972141fcf2ed97a")]
 [assembly: System.Reflection.AssemblyProductAttribute("M8MusicAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("M8MusicAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

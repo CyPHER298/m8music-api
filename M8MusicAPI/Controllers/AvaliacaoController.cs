@@ -24,7 +24,7 @@ public class AvaliacaoController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Avaliacao>>> ListarAvaliacao()
     {
-        return await _avaliacaoRepository.GetAllAsync();
+        return await _avaliacaoService.ListarAvaliacoesAsync();
     }
 
     [HttpPost]
