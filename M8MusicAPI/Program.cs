@@ -1,4 +1,5 @@
 using M8MusicAPI.Data;
+using M8MusicAPI.Infrastructure.Persistence.Repository;
 using M8MusicAPI.Repository;
 using M8MusicAPI.Services;
 using M8MusicAPI.Utils;

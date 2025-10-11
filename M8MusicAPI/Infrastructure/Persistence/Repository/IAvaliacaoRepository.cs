@@ -1,5 +1,13 @@
-﻿namespace M8MusicAPI.Repository;
+﻿using M8MusicAPI.Infrastructure.Persistence.Models;
 
-public interface IAvaliacaoRepository;
+namespace M8MusicAPI.Infrastructure.Persistence.Repository;
 
-public class AvaliacaoRepository : IAvaliacaoRepository;
+public interface IAvaliacaoRepository
+{
+    Task<List<Avaliacao>> GetAllAsync();
+    Task AddAsync(Avaliacao avaliacao);
+    Task DeleteAsync(Guid id);
+    Task<Avaliacao> GetByIdAsync(Guid id);
+    void Update(Avaliacao entity);
+    Task<int> SaveChangesAsync();
+}

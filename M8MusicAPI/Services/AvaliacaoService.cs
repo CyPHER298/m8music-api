@@ -1,5 +1,6 @@
 ﻿using M8MusicAPI.DTOs;
 using M8MusicAPI.Infrastructure.Persistence.Models;
+using M8MusicAPI.Infrastructure.Persistence.Repository;
 using M8MusicAPI.Models;
 using M8MusicAPI.Repository;
 
@@ -43,5 +44,27 @@ public class AvaliacaoService : IAvaliacaoService
         };
         return Task.FromResult(avaliacoes);
     }
-    
+
+    public async Task<Avaliacao> SaveAvaliacaoAsync(Avaliacao avaliacao)
+    {
+        if (avaliacao == null)
+        {
+            throw new ArgumentNullException(nameof(avaliacao));
+        }
+
+        await _avaliacaoRepository.AddAsync(avaliacao);
+        return avaliacao;
+    }
+
+    public async Task<bool> UpdateAvaliacaoAsync(AvaliacaoUpdateDto avaliacao)
+    {
+        var entity = await _avaliacaoRepository.GetByIdAsync(avaliacao.IdAvalicao);
+        entity.Nota = avaliacao.Nota;
+        entity.IdMusic = avaliacao.IdMusic;
+        entity.IdCliente = avaliacao.IdCliente;
+        
+        _avaliacaoRepository.Update(entity);
+        await _avaliacaoRepository.SaveChangesAsync();
+        return true;
+    }
 }
