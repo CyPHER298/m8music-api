@@ -11,6 +11,6 @@ public class Avaliacao
     public Music Music { get; set; } = default!;
     [Required] public Guid IdMusic { get; set; }
     public Cliente Cliente { get; set; } = default!;
-    [Required] public Guid IdCliente { get; set; }
+    [Required] public Guid ClienteId { get; set; }
     [Required] public int Nota { get; set; }
 }

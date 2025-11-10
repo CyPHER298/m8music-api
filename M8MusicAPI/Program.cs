@@ -59,6 +59,7 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddOpenApi();
+        builder.Services.AddHttpContextAccessor();
 
         var app = builder.Build();
 

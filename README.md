@@ -32,6 +32,63 @@ Funcionalidades previstas:
 
 ---
 
+## 🛠️ Instruções de Instalação e Configuração
+
+Siga os passos abaixo para preparar e executar o projeto **M8Music API** em seu ambiente local.
+
+### 1. Pré-requisitos
+
+* **SDK do .NET 9.0** (ou superior).
+* Um ambiente de desenvolvimento (ex: Visual Studio, VS Code).
+* [cite_start]Acesso a um banco de dados **Oracle**, pois o projeto utiliza o pacote `Oracle.EntityFrameworkCore`[cite: 1].
+
+### 2. Configuração do Banco de Dados
+
+O projeto utiliza o Entity Framework Core e requer uma *connection string* válida para o Oracle, conforme configurado em `appsettings.json`.
+
+1.  Abra o arquivo `appsettings.json`.
+2.  Localize a seção `ConnectionStrings`.
+3.  **Ajuste a *connection string* `M8MusicAPI`**:
+
+    ```json
+    "ConnectionStrings": {
+      "M8MusicAPI": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.fiap.com.br)(PORT=1521));(CONNECT_DATA=(SERVICE_NAME=orcl)));User Id=SEU_ID;Password=SUA_SENHA;"
+    }
+    ```
+    > **Atenção:** Substitua `rm99742` e `290305` pelos seus `User Id` e `Password`.
+
+### 3. Instalação e Execução
+
+1.  **Clone o repositório** (ou navegue até a pasta do projeto `M8MusicAPI/`).
+
+2.  [cite_start]**Restaure os pacotes NuGet** (as dependências estão definidas no `M8MusicAPI.csproj` [cite: 1]):
+    ```bash
+    dotnet restore
+    ```
+
+3.  **Execute as migrations do EF Core** (Assumindo que as classes de Migração estão prontas):
+    ```bash
+    dotnet ef database update
+    ```
+    *Obs: Este passo pode variar dependendo da organização das suas migrations.*
+
+4.  **Execute a aplicação:**
+    ```bash
+    dotnet run
+    ```
+    A API será iniciada no endereço configurado, geralmente `http://localhost:5264`.
+
+### 4. Documentação e Teste (Swagger/OpenAPI)
+
+Com a aplicação em execução:
+
+* Acesse o navegador na URL base para visualizar a documentação interativa:
+    `http://localhost:5264/`
+    *(A rota de prefixo do Swagger está vazia, conforme `Program.cs`)*.
+* Você poderá interagir com o *endpoint* `/api/avaliacao` e observar os *links* HATEOAS nas respostas.
+
+---
+
 ## 2) Desenho da Arquitetura (Clean Architecture)
 
 Separação de responsabilidades e baixo acoplamento:
@@ -93,4 +150,8 @@ M8MusicAPI/
 
 ---
 
+## 4) Avanço
 
+- Migrations preenchidas e criada para a aplicação
+- HATEOS e maturidade nível 3 para AVALIAÇÃO CONTROLLER
+- Conexão com banco de dados OracleSQL

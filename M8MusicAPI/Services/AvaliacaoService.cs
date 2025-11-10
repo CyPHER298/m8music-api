@@ -26,7 +26,7 @@ public class AvaliacaoService : IAvaliacaoService
             new Avaliacao
             {
                 IdAvalicao = Guid.NewGuid(),
-                IdCliente = cliente.IdCliente,
+                ClienteId = cliente.IdCliente,
                 IdMusic = musica.idMusic,
                 Nota = 5,
                 Music = musica,
@@ -35,7 +35,7 @@ public class AvaliacaoService : IAvaliacaoService
             new Avaliacao
             {
                 IdAvalicao = Guid.NewGuid(),
-                IdCliente = cliente.IdCliente,
+                ClienteId = cliente.IdCliente,
                 IdMusic = musica.idMusic,
                 Nota = 3,
                 Music = musica,
@@ -61,7 +61,7 @@ public class AvaliacaoService : IAvaliacaoService
         var entity = await _avaliacaoRepository.GetByIdAsync(avaliacao.IdAvalicao);
         entity.Nota = avaliacao.Nota;
         entity.IdMusic = avaliacao.IdMusic;
-        entity.IdCliente = avaliacao.IdCliente;
+        entity.ClienteId = avaliacao.IdCliente;
         
         _avaliacaoRepository.Update(entity);
         await _avaliacaoRepository.SaveChangesAsync();

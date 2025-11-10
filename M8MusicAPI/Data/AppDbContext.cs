@@ -20,6 +20,16 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new MusicMapping());
         modelBuilder.ApplyConfiguration(new AvaliacaoMapping());
         modelBuilder.ApplyConfiguration(new ClienteMapping());
+        modelBuilder.Entity<Avaliacao>()
+            .HasOne(a => a.Cliente) 
+            .WithMany(c => c.Avaliacoes)
+            .HasForeignKey(a => a.ClienteId);
+        
+        modelBuilder.Entity<Avaliacao>()
+            .HasOne(a => a.Music) 
+            .WithMany(c => c.avaliacoes)
+            .HasForeignKey(a => a.IdMusic);
+
         base.OnModelCreating(modelBuilder);
     }
 }
